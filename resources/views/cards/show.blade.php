@@ -2,11 +2,14 @@
 @section('content')
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      {{var_dump($card)}}
       <h1>{{$card->title}}</h1>
       <ul class="list-group">
         @foreach ($card->notes as $note)
-          <li class="list-group-item">{{$note->body}}</li>
+          <li class="list-group-item">
+            {{$note->body}}
+            <a style="float:right" href="/notes/{{$note->id}}/edit">Edit</a>
+            <a style="float:right" href="#">{{$note->user->username}}</a>
+          </li>
         @endforeach
       </ul>
       <hr />
